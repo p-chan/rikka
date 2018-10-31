@@ -5,8 +5,10 @@ const cac = require('cac')
 const consola = require('consola')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const moment = require('moment')
 const mustache = require('mustache')
 const path = require('path')
+const pkg = require('./package.json')
 const util = require('util')
 
 const cli = cac()
@@ -17,6 +19,13 @@ const defaultCommand = cli.command(
     desc: 'Generate new content'
   },
   async (input, flags) => {
+    const templateVars = {
+      date: moment().format(),
+      unixtime: moment().unix(),
+      generator: 'rikka',
+      generatorVersion: pkg.version
+    }
+
     const contentPath = input[0]
     const contentPathInfo = path.parse(contentPath)
 
@@ -111,10 +120,6 @@ const defaultCommand = cli.command(
         path.resolve(__dirname, archetypeDirName, archetypeFilePath),
         'utf-8'
       )
-
-      let templateVars = {
-        generator: 'rikka'
-      }
 
       rendered = mustache.render(template, templateVars)
     }
