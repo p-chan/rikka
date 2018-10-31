@@ -1,0 +1,26 @@
+{
+  "name": "rikka",
+  "version": "1.0.0",
+  "description": "A CLI tool to create new content for static site inspired by hugo new",
+  "keywords": [
+    "hugo"
+  ],
+  "homepage": "https://github.com/p-chan/rikka",
+  "bugs": "https://github.com/p-chan/rikka/issues",
+  "license": "MIT",
+  "author": "P-Chan",
+  "main": "index.js",
+  "bin": {
+    "rikka": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p-chan/rikka.git"
+  },
+  "dependencies": {
+    "cac": "^5.0.14",
+    "consola": "^1.4.4",
+    "mkdirp": "^0.5.1",
+    "mustache": "^3.0.0"
+  }
+}

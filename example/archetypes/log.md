@@ -1,0 +1,4 @@
+---
+title: log
+generator: {{ generator }}
+---
