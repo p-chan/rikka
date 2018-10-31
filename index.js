@@ -40,7 +40,10 @@ const defaultCommand = cli.command(
       contentDirName,
       contentPathInfo.dir
     )
-    const contentFilePath = path.resolve(contentDirPath, contentPathInfo.base)
+    const contentFilePath = mustache.render(
+      path.resolve(contentDirPath, contentPathInfo.base),
+      templateVars
+    )
 
     // Check already exists
     const isAlready = await util
