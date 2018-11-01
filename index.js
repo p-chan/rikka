@@ -36,7 +36,7 @@ const defaultCommand = cli.command(
     let targetArchetypeFilePath = ''
 
     const contentDirPath = path.resolve(
-      __dirname,
+      process.cwd(),
       contentDirName,
       contentPathInfo.dir
     )
@@ -82,7 +82,7 @@ const defaultCommand = cli.command(
     // Search ./archetypes/log.md
     if (!archetypeFilePath) {
       targetArchetypeFilePath = path.resolve(
-        __dirname,
+        process.cwd(),
         archetypeDirName,
         `${targetArchetypeFileName}.md`
       )
@@ -100,7 +100,7 @@ const defaultCommand = cli.command(
     // Search ./archetypes/default.md
     if (!archetypeFilePath) {
       targetArchetypeFilePath = path.resolve(
-        __dirname,
+        process.cwd(),
         archetypeDirName,
         'default.md'
       )
@@ -120,7 +120,7 @@ const defaultCommand = cli.command(
     // If success found archetype file when render template
     if (archetypeFilePath) {
       const template = await util.promisify(fs.readFile)(
-        path.resolve(__dirname, archetypeDirName, archetypeFilePath),
+        path.resolve(process.cwd(), archetypeDirName, archetypeFilePath),
         'utf-8'
       )
 
